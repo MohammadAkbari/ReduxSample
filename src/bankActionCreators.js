@@ -25,7 +25,7 @@ const bankActionCreators = {
 
 			ArticleApi.fetchArticles()
 					.then(
-						(items) => dispatch({ type: constants.RECEIVE_ARTICLES, success:true, articles: items }),
+						(response) => dispatch({ type: constants.RECEIVE_ARTICLES, success:true, articles: response.articles }),
 						(error) => dispatch({ type: constants.RECEIVE_ARTICLES, success:false })
 					);
 		};

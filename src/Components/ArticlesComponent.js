@@ -45,11 +45,10 @@ ArticlesComponent.propTypes = {
 const mapStateToProps = (state) => {
 
 	return {
-		articles: state.blog.articles? 
-			state.blog.articles.map(article => ({
+		articles: state.blog.articles.map(article => ({
 				title: article.title,
 				author: article.author
-			})) : []
+			}))
 	}
 }
 

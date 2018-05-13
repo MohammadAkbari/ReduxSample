@@ -1,13 +1,16 @@
 import constants from './constants';
 
-const articles = (state = [], action) => {
+const initialState = {
+	articles: []
+}
+
+
+const articles = (state = initialState, action) => {
 
     switch (action.type) {
 
-        case constants.REQUEST_ARTICLES:
-            return [];
         case constants.RECEIVE_ARTICLES:
-            return action.articles;
+            return { articles: action.articles };
         default:
             return state;
     }
