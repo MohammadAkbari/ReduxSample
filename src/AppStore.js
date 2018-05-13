@@ -3,16 +3,16 @@ import bankReducer from './bankReducer';
 import articlesReducer from './articlesReducer';
 import thunk from 'redux-thunk';
 
-const logger = (store) => (next) => (action) => {
-	console.log('Log Middleware dispatching:', action);
-	return next(action);
-}
+// const logger = (store) => (next) => (action) => {
+// 	console.log('Log Middleware dispatching:', action);
+// 	return next(action);
+// }
 
 const rootReducer = combineReducers({
 	bank: bankReducer, 
 	blog: articlesReducer
 });
 
-const bankStore = createStore(rootReducer, applyMiddleware(thunk));
+const AppStore = createStore(rootReducer, applyMiddleware(thunk));
 
-export default bankStore;
+export default AppStore;

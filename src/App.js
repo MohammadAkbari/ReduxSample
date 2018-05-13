@@ -22,9 +22,10 @@ class App extends Component {
 	render() {
 
 		let articles = this.props.articles.map((item, index)=>(
-			<div key={index}>
-				{item.title} - {item.author}
-			</div>
+			<tr key={index}>
+				<td className="text-left">{item.title}</td>
+				<td className="text-left">{item.author}</td>
+			</tr>
 		  ));
 
 		return (
@@ -38,8 +39,17 @@ class App extends Component {
 					<button onClick={this.handleWithdraw.bind(this)}>Withdraw</button>
 					<button onClick={this.handleDeposit.bind(this)}>Deposit</button>
 				</div>
-
-				{articles}
+				<table>
+					<thead>
+						<tr>
+							<th className="text-left">Subject</th>
+							<th className="text-left">Author</th>
+						</tr>
+					</thead>
+					<tbody>
+					{articles}
+					</tbody>
+				</table>
 			</div>
 		);
 	}

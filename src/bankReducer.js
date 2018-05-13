@@ -5,9 +5,7 @@ const initialState = {
 }
 
 const bankReducer = (state = initialState, action) => {
-	
-	console.log("bankReducer");
-	
+		
 	switch (action.type) {
 		case constants.DEPOSIT_INTO_ACCOUNT:
 			return {balance: state.balance + parseFloat(action.amount)};
