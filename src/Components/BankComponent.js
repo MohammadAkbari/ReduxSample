@@ -19,13 +19,8 @@ class BankComponent extends Component {
 	
 	render() {
 
-        console.log("BankComponent");
-
 		return (
 			<div>
-				<header>
-					<img src="//www.pro-react.com/logos/redux-bank.svg" width="150" alt="logo" />Redux Bank
-				</header>
 				<h1>Your balance is ${(this.props.balance).toFixed(2)}</h1>
 				<div className="atm">
 					<input type="text" placeholder="Enter Ammount" ref="amount" />

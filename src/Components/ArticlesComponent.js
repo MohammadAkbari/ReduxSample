@@ -1,38 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import bankActionCreators from '../bankActionCreators';
 
 class ArticlesComponent extends Component {
-	
-	componentDidMount(){
+
+	componentDidMount() {
 		this.props.fetchArticles();
 	}
 
 	render() {
 
-        console.log("ArticlesComponent");
-
-		let articles = this.props.articles.map((item, index)=>(
+		let articles = this.props.articles.map((item, index) => (
 			<tr key={index}>
 				<td className="text-left">{item.title}</td>
 				<td className="text-left">{item.author}</td>
 			</tr>
-		  ));
+		));
 
 		return (
-            <table>
-                <thead>
-                    <tr>
-                        <th className="text-left">Subject</th>
-                        <th className="text-left">Author</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {articles}
-                </tbody>
-            </table>
+			<div>
+				<table>
+					<thead>
+						<tr>
+							<th className="text-left">Subject</th>
+							<th className="text-left">Author</th>
+						</tr>
+					</thead>
+					<tbody>
+						{articles}
+					</tbody>
+				</table>
+			</div>
 		);
 	}
 }
@@ -46,9 +45,9 @@ const mapStateToProps = (state) => {
 
 	return {
 		articles: state.blog.articles.map(article => ({
-				title: article.title,
-				author: article.author
-			}))
+			title: article.title,
+			author: article.author
+		}))
 	}
 }
 
