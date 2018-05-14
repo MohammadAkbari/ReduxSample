@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'; 
@@ -8,17 +7,17 @@ import settingActionCreators from '../Actions/settingActionCreators'
 class DisplayPrivateInfo extends Component {
 
 	onNameFamilyEdit() {
-		this.props.editNameFamily();
+		this.props.dispatch(settingActionCreators.editNameFamily());
 	}
 
 	render() {
 
-		let {Name, Family} = this.props;
+		let {name, family} = this.props;
 
 		return (
 			<div>
 				<div>
-					<span>{Name} {Family} </span>	
+					<span>{name} {family} </span>	
 					<button onClick={this.onNameFamilyEdit.bind(this)}>Edit</button>
 				</div>
 			</div>
@@ -27,21 +26,8 @@ class DisplayPrivateInfo extends Component {
 }
 
 DisplayPrivateInfo.propTypes = {
-	Name: PropTypes.string,
-	Family: PropTypes.string
+	name: PropTypes.string,
+	family: PropTypes.string
 };
 
-const mapStateToProps = (state) => {
-	return {
-		Name: state.setting.Name,
-		Family: state.setting.Family,
-	}
-}
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		editNameFamily: () => dispatch(settingActionCreators.editNameFamily()),
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DisplayPrivateInfo);
+export default connect()(DisplayPrivateInfo);

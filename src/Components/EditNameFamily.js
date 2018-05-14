@@ -11,18 +11,18 @@ class PrivateInfo extends Component {
 		const name = this.getName.value;
 		const family= this.getFamily.value;
 
-		this.props.saveNameFamily(name, family);
+		this.props.dispatch(settingActionCreators.saveNameFamily(name, family));
 	}
 
 	render() {
 
-		let {Name, Family} = this.props;
+		let {name, family} = this.props;
 
 		return (
 			<div>
 				<div>
-					<input type="text" ref={(input) => this.getName = input} defaultValue={Name} />
-					<input type="text" ref={(input) => this.getFamily = input} defaultValue={Family} />
+					<input type="text" ref={(input) => this.getName = input} defaultValue={name} />
+					<input type="text" ref={(input) => this.getFamily = input} defaultValue={family} />
 
 					<button onClick={this.onNameFamilySave.bind(this)}>Save</button>
 				</div>
@@ -36,17 +36,4 @@ PrivateInfo.propTypes = {
 	Family: PropTypes.string,
 };
 
-const mapStateToProps = (state) => {
-	return {
-		Name: state.setting.Name,
-		Family: state.setting.Family,
-	}
-}
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		saveNameFamily: (name, family) => dispatch(settingActionCreators.saveNameFamily(name, family))
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PrivateInfo);
+export default connect()(PrivateInfo);

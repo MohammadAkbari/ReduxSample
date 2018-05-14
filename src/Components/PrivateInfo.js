@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'; 
@@ -19,7 +18,7 @@ class PrivateInfo extends Component {
 
 	onNameFamilySave() {
 		const name = this.getName.value;
-		const family= this.getFamily.value;
+		const family = this.getFamily.value;
 
 		const data = {
 			Name: name,
@@ -34,13 +33,15 @@ class PrivateInfo extends Component {
 
 	render() {
 
-		let {Name, Family, Nickname, editing} = this.props;
-
+		let { Name, Family, Nickname, editing } = this.props;
 		return (
 			<div>
+
 				{
-					editing? <EditNameFamily /> : <DisplayNameFamily />
+					editing ? <EditNameFamily name={Name} family={Family} /> :
+						<DisplayNameFamily name={Name} family={Family} />
 				}
+
 				<div>{Nickname}</div>
 			</div>
 		);
@@ -69,9 +70,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		getPrivateInfo: () => dispatch(settingActionCreators.getPrivateInfo()),
-		editNameFamily: (profileInfo) => dispatch(settingActionCreators.editNameFamily(profileInfo)),
-		saveNameFamily: (profileInfo) => dispatch(settingActionCreators.saveNameFamily(profileInfo)),
+		getPrivateInfo: () => dispatch(settingActionCreators.getPrivateInfo())
 	}
 }
 
