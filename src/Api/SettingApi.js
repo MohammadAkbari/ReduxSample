@@ -10,7 +10,20 @@ let SettingApi = {
                 Family: "Akbari",
                 Nickname: "Saleh",
                 Emails: [],
-                PhoneNumbers: []
+                PhoneNumbers: [{
+                    phoneNumber: "09124176684", 
+                    isPrimary: true, 
+                    confirmed: true
+                },
+                {
+                    phoneNumber: "09124176684", 
+                    isPrimary: false, 
+                    confirmed: true
+                },{
+                    phoneNumber: "09124176684", 
+                    isPrimary: false, 
+                    confirmed: false
+                }]
             }), 1000);
         });
 

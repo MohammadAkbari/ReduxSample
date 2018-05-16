@@ -8,5 +8,8 @@ export default {
 	REQUEST_PRIVATE_INFO: "request private info",
 	RECEIVE_PRIVATE_INFO: "receive private info",
 	EDIT_NAME_FAMILLY: "edit name and family",
-	SAVE_NAME_FAMILLY: "save name and family"
+	SAVE_NAME_FAMILLY: "save name and family",
+	EDIT_PHONE_NUMBERS: "edit phone numbers",
+	ADD_PHONE_NUMBER: "edit phone number",
+	CONFIRM_PHONE_NUMBER: "confirm phone number"
 };
